@@ -9,9 +9,13 @@ def index():
 @route('/index')
 def index():
 	return template("index.tpl")
+
 @route('/letras')
 def letras():
 	return template('letras.tpl')
+#BUSCA LAS LETRAS DE LAS CANCIONES
+@route('/buscarletras' ,method='POST')
+
 @route('/videos')
 def videos():
 	return template('videos.tpl')
