@@ -1,12 +1,8 @@
-from bottle import route, default_app
+from bottle import route, default_app,Bottle,request,template,static_file
+import requests
+from lxml import etree
 
-@route('/name/<name>')
-def nameindex(name='Stranger'):
-    return '<strong>Hello, %s!</strong>' % name
- 
-@route('/')
-def index():
-    return '<strong>Hello World!</strong>'
+
 
 # This must be added in order to do correct path lookups for the views
 import os
