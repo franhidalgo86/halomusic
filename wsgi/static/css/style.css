@@ -10,7 +10,7 @@
 
 	body
 	{
-		background: #141414;
+		background: #FFF;
 	}
 
 	body,input,textarea,select
@@ -199,7 +199,7 @@
 			{
 				padding: 0.60em 0em;
 				border-top: 1px solid;
-				border-color: rgba(255,255,255,.1);
+				border-color: #FFF;
 			}
 			
 			ul.default li:first-child
@@ -211,7 +211,7 @@
 			ul.default a
 			{
 				text-decoration: none;
-				color: rgba(255,255,255,.5);
+				color: #FFF;
 			}
 			
 			ul.default a:hover
