@@ -19,6 +19,8 @@ def letras():
 @route('/videos')
 def videos():
 	return template('videos.tpl')
+#BUSCA LAS URL DE LOS VIDEOS
+@route('/buscarvideos' ,method='POST')
 
 
 # This must be added in order to do correct path lookups for the views
