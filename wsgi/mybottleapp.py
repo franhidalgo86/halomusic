@@ -9,6 +9,12 @@ def index():
 @route('/index')
 def index():
 	return template("index.tpl")
+@route('/letras')
+def letras():
+	return template('letras.tpl')
+@route('/videos')
+def videos():
+	return template('videos.tpl')
 
 
 # This must be added in order to do correct path lookups for the views
