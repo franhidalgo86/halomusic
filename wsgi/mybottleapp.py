@@ -15,6 +15,11 @@ def letras():
 	return template('letras.tpl')
 #BUSCA LAS LETRAS DE LAS CANCIONES
 @route('/buscarletras' ,method='POST')
+def buscarletras():
+	artista=request.forms.get('nombre')
+	if len(artista) >1: 
+		URL_base= ("http://api.muzu.tv/api/artist/details/")
+		parametros= {"muzuid":"pixnImQXRE","aname":artista}
 
 @route('/videos')
 def videos():
