@@ -13,6 +13,7 @@ def index():
 @route('/letras')
 def letras():
 	return template('letras.tpl')
+
 #BUSCA LAS LETRAS DE LAS CANCIONES
 @route('/buscarletras' ,method='POST')
 def buscarletras():
@@ -20,11 +21,13 @@ def buscarletras():
 	if len(artista) >1: 
 		URL_base= ("http://api.muzu.tv/api/artist/details/")
 		parametros= {"muzuid":"pixnImQXRE","aname":artista}
+
 	respuesta=requests.get(URL_base,params=parametros)
 
 	lista_letras=[]
 	arbol=etree.fromstring(respuesta.text.encode('utf-8'))
 	nsmap = {k:v for k,v in arbol.nsmap.iteritems() if k}
+
 	lista=arbol.findall("channel/item/media:description",nsmap)
 	for descrip in lista:
 		cadena = descrip.text.encode('utf8')
@@ -32,9 +35,12 @@ def buscarletras():
 			lista_letras.append(cadena[cadena.index("Letra / Lyrics")+16:cadena.index("Subscribe now")])
 	return template("buscarletras.tpl" ,valorletra=lista_letras)
 
+
+
 @route('/videos')
 def videos():
 	return template('videos.tpl')
+
 #BUSCA LAS URL DE LOS VIDEOS
 @route('/buscarvideos' ,method='POST')
 def buscarvideos():
@@ -42,7 +48,9 @@ def buscarvideos():
 	if len(artista) >1: 
 		URL_base= ("http://api.muzu.tv/api/artist/details/")
 		parametros= {"muzuid":"pixnImQXRE","aname":artista}
+
 	respuesta=requests.get(URL_base,params=parametros)
+
 	lista_urls=[]
 	lis_titulos=[]
 	arbol=etree.fromstring(respuesta.text.encode('utf-8'))
