@@ -37,7 +37,11 @@ def videos():
 	return template('videos.tpl')
 #BUSCA LAS URL DE LOS VIDEOS
 @route('/buscarvideos' ,method='POST')
-
+def buscarvideos():
+	artista=request.forms.get('nombre')
+	if len(artista) >1: 
+		URL_base= ("http://api.muzu.tv/api/artist/details/")
+		parametros= {"muzuid":"pixnImQXRE","aname":artista}
 
 # This must be added in order to do correct path lookups for the views
 import os
