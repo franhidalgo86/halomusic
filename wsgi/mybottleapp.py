@@ -43,6 +43,14 @@ def buscarvideos():
 		URL_base= ("http://api.muzu.tv/api/artist/details/")
 		parametros= {"muzuid":"pixnImQXRE","aname":artista}
 	respuesta=requests.get(URL_base,params=parametros)
+	lis_titulos=[]
+	arbol=etree.fromstring(respuesta.text.encode('utf-8'))
+	nsmap = {k:v for k,v in arbol.nsmap.iteritems() if k}
+	lista=arbol.findall("channel/item/link")
+	lista_titulos=arbol.findall("channel/item/media:title",nsmap)
+	for titulos in lista_titulos:
+		lis_titulos.append(titulos.text)		
+	return template("buscarvideos.tpl" ,valor=(lis_titulos))
 
 # This must be added in order to do correct path lookups for the views
 import os
