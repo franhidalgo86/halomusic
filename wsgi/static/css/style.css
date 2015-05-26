@@ -87,8 +87,8 @@
 	p, ul, ol, dl, table
 	{
 		margin-bottom: 1em;
-		margin-left: auto;
-		margin-right: auto;
+		margin-left: 5cm;
+		margin-right: 5cm;
 		width: 80%;
 	}
 
