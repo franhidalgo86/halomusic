@@ -25,6 +25,12 @@ def buscarletras():
 	lista_letras=[]
 	arbol=etree.fromstring(respuesta.text.encode('utf-8'))
 	nsmap = {k:v for k,v in arbol.nsmap.iteritems() if k}
+	lista=arbol.findall("channel/item/media:description")
+	for descrip in lista:
+		cadena = descrip
+		if cadena.count("Letra / Lyrics")>0 and cadena.count("Subscribe now")>0:
+			lista_letras.append(cadena[cadena.index("Letra / Lyrics")+16:cadena.index("Subscribe now")])
+	return template("buscarletras.tpl" ,valorletra=lista_letras)
 
 @route('/videos')
 def videos():
