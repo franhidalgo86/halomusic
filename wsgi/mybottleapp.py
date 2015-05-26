@@ -25,9 +25,9 @@ def buscarletras():
 	lista_letras=[]
 	arbol=etree.fromstring(respuesta.text.encode('utf-8'))
 	nsmap = {k:v for k,v in arbol.nsmap.iteritems() if k}
-	lista=arbol.findall("channel/item/media:description")
+	lista=arbol.findall("channel/item/media:description",nsmap)
 	for descrip in lista:
-		cadena = descrip
+		cadena = descrip.text.encode('utf8')
 		if cadena.count("Letra / Lyrics")>0 and cadena.count("Subscribe now")>0:
 			lista_letras.append(cadena[cadena.index("Letra / Lyrics")+16:cadena.index("Subscribe now")])
 	return template("buscarletras.tpl" ,valorletra=lista_letras)
