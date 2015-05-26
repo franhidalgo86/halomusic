@@ -20,6 +20,11 @@ def buscarletras():
 	if len(artista) >1: 
 		URL_base= ("http://api.muzu.tv/api/artist/details/")
 		parametros= {"muzuid":"pixnImQXRE","aname":artista}
+	respuesta=requests.get(URL_base,params=parametros)
+
+	lista_letras=[]
+	arbol=etree.fromstring(respuesta.text.encode('utf-8'))
+	nsmap = {k:v for k,v in arbol.nsmap.iteritems() if k}
 
 @route('/videos')
 def videos():
