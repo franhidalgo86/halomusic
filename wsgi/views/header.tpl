@@ -5,6 +5,8 @@
     Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
+	<head profile="http://www.w3.org/2005/10/profile">
+	<link rel="icon" type="image/png" href="http://musica-para-volar.blogspot.com/favicon.ico">
 	<head>
 		<title>HaloMusic</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
