@@ -42,6 +42,7 @@ def buscarvideos():
 	if len(artista) >1: 
 		URL_base= ("http://api.muzu.tv/api/artist/details/")
 		parametros= {"muzuid":"pixnImQXRE","aname":artista}
+	respuesta=requests.get(URL_base,params=parametros)
 
 # This must be added in order to do correct path lookups for the views
 import os
